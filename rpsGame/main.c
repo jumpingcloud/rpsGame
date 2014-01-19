@@ -3,23 +3,23 @@
 
 enum { max_length = 127 };
 static char response[max_length];
+int computerThrow = 1;
+int val = 0;
 
-int rock(){
-	if (){
-
-	}
+void rock(){
+	puts("You chose ROCK!");
 }
 
-int paper(){
+void paper(){
+	puts("You chose PAPER!!");
+};
 
-}
-
-int scissors(){
-
-}
+void scissors(){
+	puts("You chose SCISSORS!!");
+};
 
 int end_game(){
-	puts("Dang you win the game?!");
+	puts("Dang! You win the game?!");
 	return 0;
 }
 
@@ -31,8 +31,16 @@ int main( int argc, char ** argv ) {
 		printf("%d: What do you want to throw? ", i);
 		fflush(stdout);
 		fgets( response, max_length, stdin );
-
+		val = atoi(response);
+		if( val == 1 ){
+			rock();
+		} else if( val == 2 ){
+			paper();
+		} else if( val == 3){
+			scissors();
+		}
 	}
+
 
 	end_game();
 	return 0;
