@@ -39,7 +39,7 @@ void paper(){
 		} else if( computerThrow() == 3 ){
 			puts( "Ouch! Scissors CUT Paper!" );
 		}
-};
+}
 
 void scissors(){
 	puts( "You chose SCISSORS!!" );
@@ -47,16 +47,16 @@ void scissors(){
 			puts( "Rock CRUSHES Scissors!" );
 			yourScore += 1;
 		} else if( computerThrow() == 2){
-			puts( "OOOoo, Paper COVERS Rock!" );
+			puts( "OOOoo, Scissors cut the Paper!" );
 		} else if( computerThrow() == 3 ){
-			puts( "Rock ON Rock action!" );
+			puts( "Scissor ON Scissor action!" );
 		}
-};
+}
 
 int end_game(){
-	puts( "Dang! You win the game?!" );
+	puts( "Dang! Did you win the game?!" );
 	if( yourScore >= 2 ){
-		puts( "Awww yeah, you go boy!" );
+		puts( "Awww yeah you did! You go boy!" );
 	} else if( yourScore < 2 ){
 		puts( "Well, you've lost this time, but Try Again!");
 	}
