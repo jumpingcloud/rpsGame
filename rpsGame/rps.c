@@ -1,5 +1,6 @@
 // rpsgame.c  Rock, paper, scissors game -- First C program
-// TODO: fix loop to -not skip- player's turn if user enters invalid choice.
+// DONE TODO: fix loop to -not skip- player's turn if user enters invalid choice.
+// TODO: Refactor code
 
 #include <stdio.h>
 #include<stdlib.h>
