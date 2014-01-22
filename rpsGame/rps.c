@@ -1,4 +1,6 @@
 // rpsgame.c  Rock, paper, scissors game -- First C program
+// TODO: fix loop to -not skip- player's turn if user enters invalid choice.
+
 #include <stdio.h>
 #include<stdlib.h>
 #include<time.h>
@@ -6,7 +8,7 @@
 enum { max_length = 127 };
 static char response[max_length];
 static int yourScore = 0;
-
+static int computersThrow = 0;
 int val = 0;
 
 int computerThrow(){
@@ -19,36 +21,36 @@ int computerThrow(){
 
 void rock(){
 	puts( "You chose ROCK!" );
-	if( computerThrow() == 1 ){
+	if( computersThrow == 1 ){
 		puts( "Rock ON Rock action!" );
 		yourScore += 1;
-	} else if( computerThrow() == 2){
+	} else if( computersThrow == 2){
 		puts( "OOOoo, Paper COVERS Rock!" );
-	} else if( computerThrow() == 3 ){
+	} else if( computersThrow == 3 ){
 		puts( "Rock CRUSHES Scissors!" );
 	}
 }
 
 void paper(){
 	puts( "You chose PAPER!!" );
-	if( computerThrow() == 1 ){
+	if( computersThrow == 1 ){
 			puts( "Paper COVERS Rock!" );
 			yourScore += 1;
-		} else if( computerThrow() == 2){
+		} else if( computersThrow == 2){
 			puts( "Paper ON Paper!" );
-		} else if( computerThrow() == 3 ){
+		} else if( computersThrow == 3 ){
 			puts( "Ouch! Scissors CUT Paper!" );
 		}
 }
 
 void scissors(){
 	puts( "You chose SCISSORS!!" );
-	if( computerThrow() == 1 ){
+	if( computersThrow == 1 ){
 			puts( "Rock CRUSHES Scissors!" );
 			yourScore += 1;
-		} else if( computerThrow() == 2){
+		} else if( computersThrow == 2){
 			puts( "OOOoo, Scissors cut the Paper!" );
-		} else if( computerThrow() == 3 ){
+		} else if( computersThrow == 3 ){
 			puts( "Scissor ON Scissor action!" );
 		}
 }
@@ -65,7 +67,7 @@ int end_game(){
 
 int main( int argc, char ** argv ) {
 	for ( int i = 0; i < 3; ++i ){
-		computerThrow();
+		computersThrow = computerThrow();
 		printf( "Your Score: %d\n", yourScore );
 		puts( "1. Rock" );
 		puts( "2. Paper" );
@@ -80,6 +82,8 @@ int main( int argc, char ** argv ) {
 			paper();
 		} else if( val == 3){
 			scissors();
+		} else {
+
 		}
 	}
 
