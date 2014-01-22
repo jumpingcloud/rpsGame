@@ -13,7 +13,6 @@ int val = 0;
 
 int computerThrow(){
 	srand ( time(NULL) );
-	int randomNubmer = 0;
 	int randomNumber = rand() % 3 + 1;
 	printf( "Computer's number is %d\n", randomNumber );
 	return randomNumber;
@@ -23,11 +22,11 @@ void rock(){
 	puts( "You chose ROCK!" );
 	if( computersThrow == 1 ){
 		puts( "Rock ON Rock action!" );
-		yourScore += 1;
 	} else if( computersThrow == 2){
 		puts( "OOOoo, Paper COVERS Rock!" );
 	} else if( computersThrow == 3 ){
 		puts( "Rock CRUSHES Scissors!" );
+		yourScore += 1;
 	}
 }
 
@@ -47,16 +46,18 @@ void scissors(){
 	puts( "You chose SCISSORS!!" );
 	if( computersThrow == 1 ){
 			puts( "Rock CRUSHES Scissors!" );
-			yourScore += 1;
 		} else if( computersThrow == 2){
 			puts( "OOOoo, Scissors cut the Paper!" );
+			yourScore += 1;
 		} else if( computersThrow == 3 ){
 			puts( "Scissor ON Scissor action!" );
 		}
 }
 
 int end_game(){
-	puts( "Dang! Did you win the game?!" );
+	puts( "Did you win the game?!" );
+
+	printf( "Your final score was: %d \n", yourScore );
 	if( yourScore >= 2 ){
 		puts( "Awww yeah you did! You go boy!" );
 	} else if( yourScore < 2 ){
@@ -83,7 +84,8 @@ int main( int argc, char ** argv ) {
 		} else if( val == 3){
 			scissors();
 		} else {
-
+			puts( "Enter valid choice 1, 2 or 3" );
+			i -= 1;
 		}
 	}
 
